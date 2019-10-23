@@ -3,7 +3,8 @@
 ul {
     list-style: none;
 }
-a{
+
+a {
     text-decoration: none;
 }
 
@@ -42,11 +43,23 @@ a{
     grid-template-columns: repeat(2, 1fr);
 }
 
-
-
-#canvas{
+#canvas {
     border: 1px solid #000;
 }
+
+.btn {
+    width: 60px;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    flex-direction: column;
+    display: inline-flex;
+    /* padding: 10px; */
+    border-radius: 12px;
+    background-color: #ffffff
+}
+
 /* helpers */
 
 .flex {
@@ -65,5 +78,6 @@ a{
     justify-content: space-between;
 }
 
-.grey-background{
-    background-color: #e3e3e3;}
+.grey-background {
+    background-color: #e3e3e3;
+}

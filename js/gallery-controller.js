@@ -2,8 +2,8 @@
 
 function onInitGallery() {
     renderGallery();
+  
 }
-
 
 
 

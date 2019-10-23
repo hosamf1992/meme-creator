@@ -1,6 +1,8 @@
 'use strict'
 let gCanvas;
 let gCtx;
+let isDraw = true;
+
 
 let gImgId;
 let IMG_ID = 'imgId';
@@ -26,12 +28,16 @@ let gMeme = {
     selectedTxtIdx: 0,
 
     txts: [
-        {
-            line: '',
-            size: 20,
-            align: 'left',
-            color: 'red'
-        }]
+        // {
+        //     line: '',
+        //     size: 20,
+        //     align: 'left',
+        //     color: 'red',
+        //     x: 20,
+        //     y: 40,
+        // }
+
+    ]
 };
 
 
@@ -48,6 +54,10 @@ function saveTxt(txts) {
 
 }
 
+function getTxt() {
+    return gMeme['txts'][0].line;
+}
+
 function isTxt() {
     if (gMeme["txts"][0].line !== '') return true;
     else false;
@@ -59,4 +69,24 @@ function saveIdToStorage() {
 
 function loadImgIdFromStorage() {
     return loadFromStorage(IMG_ID);
+}
+
+function getSelctedTxtIdx() {
+    return gMeme.selectedTxtIdx;
+}
+
+function addTxt(line, x, y) {
+    var txt = {
+
+        line: line,
+        size: 32,
+        align: 'center',
+        color: 'white',
+        x: 20,
+        y: 40,
+
+    }
+
+    gMeme["txts"].push(txt);
+
 }

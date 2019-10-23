@@ -35,7 +35,7 @@
 
             <div class="canvas-container">
                 <canvas id="canvas" width="540" height="540">
-                   
+
                 </canvas>
             </div>
 
@@ -43,8 +43,27 @@
             <div class="editor">
 
 
+                <input  onchange="onDrawTxt()" class="user-input" type="text" placeholder="add text">
+                <span class="btn"> <img width="35" height="35" src="img/icons/increase font - icon.png"></span>
+                <span class="btn"> <img width="35" height="35" src="img/icons/decrease font - icon.png"></span>
+                <span class="btn"> <img width="35" height="35"
+                        src="img/icons/up-and-down-opposite-double-arrows-side-by-side.png"></span>
+                <span class="btn"> <img width="35" height="35" src="img/icons/align-to-left.png"></span>
+                <span class="btn"> <img width="35" height="35" src="img/icons/align-to-right.png"></span>
+                <span class="btn"> <img width="35" height="35" src="img/icons/center-text-alignment.png"></span>
+                <span class="btn"> <img width="35" height="35" src="img/icons/text stroke.png"></span>
+                <span class="btn"> <img width="35" height="35" src="img/icons/paint-board-and-brush.png"></span>
+                <span class="btn"> <img onclick="onAddLine()" width="35" height="35" src="img/icons/add.png"></span>
 
-                    <input onchange="onDrawTxt()" class="user-input" type="text" placeholder="lorem ipsum">
+
+
+
+
+
+
+
+
+
             </div>
 
 
@@ -57,11 +76,14 @@
 
 
 
-
-    <script src="js/utill.js"></script>
-    <script src="js/gallery-controller.js"></script>
     <script src="js/main-service.js"></script>
+    <script src="js/utill.js"></script>
+
     <script src="js/editor-controller.js"></script>
+
+    <script src="js/gallery-controller.js"></script>
+
+
 
 </body>
 
