@@ -1,54 +1,69 @@
-
 /* Header */
-ul{
+
+ul {
     list-style: none;
 }
-
-.img-logo{
-    width: 133px;
-height: 22px;
+a{
+    text-decoration: none;
 }
 
+.img-logo {
+    width: 133px;
+    height: 22px;
+}
 
-.header-container{
+.header-container {
     height: 66px;
     background-color: #ff7f00;
 }
 
-.nav li{
+.nav li {
     padding-right: 10px;
 }
 
-
-
 /* gallery-grid */
-.main-gallery{
+
+.main-gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    
     margin-top: 30px;
 }
- 
-.main-gallery img{
+
+.main-gallery img {
     height: 350px;
     width: 350px;
+    cursor: pointer;
+}
+
+/* meme-editor */
+
+.main-editor {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 
 
-
-
+#canvas{
+    border: 1px solid #000;
+}
 /* helpers */
-.flex{
+
+.flex {
     display: flex;
 }
-.justify-center{
+
+.justify-center {
     justify-content: center;
 }
-.align-center{
+
+.align-center {
     align-items: center;
 }
 
-.space-between{
+.space-between {
     justify-content: space-between;
 }
+
+.grey-background{
+    background-color: #e3e3e3;}

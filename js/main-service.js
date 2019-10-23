@@ -1,9 +1,13 @@
 'use strict'
+let gCanvas;
+let gCtx;
 
+let gImgId;
+let IMG_ID = 'imgId';
 
-var gKeywords = { 'happy': 12, 'funny puk': 1 }
+let gKeywords = { 'happy': 12, 'funny puk': 1 }
 
-var gImgs = [
+let gImgs = [
     { id: 1, url: 'img/gallery/1.jpg', keywords: ['happy'] },
     { id: 2, url: 'img/gallery/2.jpg', keywords: ['happy'] },
     { id: 3, url: 'img/gallery/3.jpg', keywords: ['happy'] },
@@ -17,13 +21,13 @@ var gImgs = [
 
 ];
 
-var gMeme = {
+let gMeme = {
     selectedImgId: 5,
     selectedTxtIdx: 0,
 
     txts: [
         {
-            line: 'I never eat Falafel',
+            line: '',
             size: 20,
             align: 'left',
             color: 'red'
@@ -31,3 +35,28 @@ var gMeme = {
 };
 
 
+
+
+function findImgId(id) {
+    var index = gImgs.findIndex((img) => img.id === id)
+    return index;
+
+}
+
+function saveTxt(txts) {
+    gMeme["txts"][0].line = txts;
+
+}
+
+function isTxt() {
+    if (gMeme["txts"][0].line !== '') return true;
+    else false;
+}
+
+function saveIdToStorage() {
+    saveToStorage(IMG_ID, gImgId)
+}
+
+function loadImgIdFromStorage() {
+    return loadFromStorage(IMG_ID);
+}
