@@ -87,10 +87,12 @@ function loadImg() {
     let img = new Image();
     img.src = gImgs[index].url;
     // img.src = 'img/gallery/1.jpg';
-
+    canvas.width = img.width;
+    canvas.height = img.height;
     img.onload = function () {
 
         gCtx.drawImage(img, 0, 0);
+       
 
     };
 
