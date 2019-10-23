@@ -1,0 +1,35 @@
+
+
+ul{
+    list-style: none;
+}
+
+.img-logo{
+    width: 133px;
+height: 22px;
+}
+
+
+.header-container{
+    height: 66px;
+    background-color: #ff7f00;
+}
+
+.nav li{
+    padding-right: 10px;
+}
+
+/* helpers */
+.flex{
+    display: flex;
+}
+.justify-center{
+    justify-content: center;
+}
+.align-center{
+    align-items: center;
+}
+
+.space-between{
+    justify-content: space-between;
+}
