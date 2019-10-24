@@ -24,5 +24,5 @@ function openEditor(el) {
     gImgId = el.dataset.id;
     saveIdToStorage();
     console.log(el.dataset.id);
-    window.open("/editor.html", "_self");
+    window.open("editor.html", "_self");
 }

@@ -1,11 +1,9 @@
 'use strict'
 let gCanvas;
 let gCtx;
-let isDraw = true;
-
-
 let gImgId;
 let IMG_ID = 'imgId';
+
 
 let gKeywords = { 'happy': 12, 'funny puk': 1 }
 
@@ -28,39 +26,107 @@ let gMeme = {
     selectedTxtIdx: 0,
 
     txts: [
-        // {
-        //     line: '',
-        //     size: 20,
-        //     align: 'left',
-        //     color: 'red',
-        //     x: 20,
-        //     y: 40,
-        // }
+        {
+            line: 'Edit Top text',
+            font: 'Impact',
+            size: 32,
+            stroke: 'black',
+            align: 'left',
+            color: 'white',
+            x: 20,
+            y: 40,
+        }
 
     ]
 };
 
+function ChangeStroke(color) {
+    let selectedTxtIdx = getSelctedTxtIdx();
+    gMeme.txts[selectedTxtIdx].stroke = color;
+
+}
+function changeColor(color) {
+    let selectedTxtIdx = getSelctedTxtIdx();
+    gMeme.txts[selectedTxtIdx].color = color;
+
+}
 
 
+function changeTxt(txt) {
+    let selectedTxtIdx = getSelctedTxtIdx();
+    gMeme.txts[selectedTxtIdx].line = txt;
+}
+
+function switchLine() {
+    if (gMeme.txts.length === 0) return;
+   
+
+
+}
+
+
+function changePos(pos) {
+    let y = 2;
+    if (pos === 'up') gMeme.txts[getSelctedTxtIdx()].y -= y;
+    else gMeme.txts[getSelctedTxtIdx()].y += y
+}
+
+function alignText(pos) {
+    let x
+    if (pos === 'center') {
+        x = gCanvas.width / 2;
+    }
+    if (pos === 'left') {
+        x = 20;
+    }
+    if (pos === 'right') {
+        x = gCanvas.width - 100;
+    }
+
+
+    gMeme.txts[getSelctedTxtIdx()].x = x;
+
+}
+
+function addLine(txt) {
+    if (getSelctedTxtIdx() === 2) return;
+    gMeme.selectedTxtIdx += 1;
+    let y;
+
+    if (getSelctedTxtIdx() === 1) {
+
+        y = gCanvas.height - 20;
+
+    }
+    if (getSelctedTxtIdx() === 2) {
+        y = gCanvas.height / 2;
+
+    }
+    addTxt(txt, 20, y);
+}
+
+function changeSize(size) {
+    let setSize;
+    if (size === 1) setSize = 1;
+    else setSize = -1;
+    let selectedTxtIdx = getSelctedTxtIdx();
+    gMeme.txts[selectedTxtIdx].size += setSize;
+}
 
 function findImgId(id) {
-    var index = gImgs.findIndex((img) => img.id === id)
+    let index = gImgs.findIndex((img) => img.id === id)
     return index;
 
 }
 
-function saveTxt(txts) {
-    gMeme["txts"][0].line = txts;
+function getSelectedTxt() {
+    let txtIdx = gMeme.selectedTxtIdx;
+    let txt = gMeme['txts'][txtIdx];
+    return txt;
 
-}
 
-function getTxt() {
-    return gMeme['txts'][0].line;
-}
 
-function isTxt() {
-    if (gMeme["txts"][0].line !== '') return true;
-    else false;
+
 }
 
 function saveIdToStorage() {
@@ -75,15 +141,17 @@ function getSelctedTxtIdx() {
     return gMeme.selectedTxtIdx;
 }
 
-function addTxt(line, x, y) {
-    var txt = {
+function addTxt(text, x, y) {
+    let txt = {
 
-        line: line,
+        line: text,
+        stroke: 'black',
+        font: 'Impact',
         size: 32,
         align: 'center',
         color: 'white',
-        x: 20,
-        y: 40,
+        x: x,
+        y: y,
 
     }
 

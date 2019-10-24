@@ -10,24 +10,27 @@
 </head>
 
 <body onload="onInitEditor()">
-    <header>
-        <div class="header-container flex space-between align-center">
-            <div class="logo">
-                <img class="img-logo" src="img/logo/LOGO.png">
-            </div>
-            <div class="nav">
-                <ul class="flex">
-                    <li><a href="index.html">Gallery </a></li>
-                    <li><a>Memes</a></li>
-                    <li><a>About</a></li>
-
-
-                </ul>
-            </div>
-
-        </div>
-
-    </header>
+        <header>
+                <div class="main-header ">
+                    <div class="container flex space-between align-center ">
+                            <div class="logo">
+                                    <img class="img-logo" src="img/logo/LOGO.png">
+                                </div>
+                                <div class="nav">
+                                    <ul class="flex">
+                                        <li><a href="index.html">Gallery </a></li>
+                                        <li><a>Memes</a></li>
+                                        <li><a>About</a></li>
+                    
+                    
+                                    </ul>
+                                </div>
+                    </div>
+                   
+        
+                </div>
+        
+            </header>
 
     <main class="grey-background">
 
@@ -43,16 +46,38 @@
             <div class="editor">
 
 
-                <input  onchange="onDrawTxt()" class="user-input" type="text" placeholder="add text">
-                <span class="btn"> <img width="35" height="35" src="img/icons/increase font - icon.png"></span>
-                <span class="btn"> <img width="35" height="35" src="img/icons/decrease font - icon.png"></span>
-                <span class="btn"> <img width="35" height="35"
+                <input onkeyup="onChangeTxt()" class="user-input" type="text" placeholder="add text">
+                <span onclick="onChangeFont(1)" class="btn"> <img width="35" height="35"                        
+                        src="img/icons/increase font - icon.png"></span>
+                      
+                <span onclick="onChangeFont(-1)"" class="btn"> <img width="35" height="35" src="img/icons/decrease font - icon.png"></span>
+                <span onclick="onSwitchLine()" class="btn"> <img width="35" height="35"
                         src="img/icons/up-and-down-opposite-double-arrows-side-by-side.png"></span>
-                <span class="btn"> <img width="35" height="35" src="img/icons/align-to-left.png"></span>
-                <span class="btn"> <img width="35" height="35" src="img/icons/align-to-right.png"></span>
-                <span class="btn"> <img width="35" height="35" src="img/icons/center-text-alignment.png"></span>
-                <span class="btn"> <img width="35" height="35" src="img/icons/text stroke.png"></span>
-                <span class="btn"> <img width="35" height="35" src="img/icons/paint-board-and-brush.png"></span>
+
+
+                        <span onclick="onChangePos('up')"  class="btn"> <img width="30" height="40" src="img/icons/up-arrow.png"></span>
+                        <span onclick="onChangePos('down')" class="btn"> <img width="30" height="40"
+                                src="img/icons/down-arrow.png"></span>
+
+                                <label onchange="onChangeColor()"  for="color-box">
+                                    <input  type="color" id="color-box" >
+                                    <span   class="btn"> <img type='color' width="35" height="35" src="img/icons/paint-board-and-brush.png"></span>
+                                </label>
+
+
+                                <label onchange="onChangeStroke()"  for="stroke-box">
+                                    <input  type="color" id="stroke-box" >
+                                    <span   class="btn"> <img type='color' width="35" height="35" src="img/icons/text stroke.png"></span>
+                                </label>
+
+
+                <span onclick="onAlignText('left')" class="btn"> <img width="35" height="35" src="img/icons/align-to-left.png"></span>
+                <span onclick="onAlignText('right')" class="btn"> <img width="35" height="35" src="img/icons/align-to-right.png"></span>
+                <span onclick="onAlignText('center')" class="btn"> <img width="35" height="35" src="img/icons/center-text-alignment.png"></span>
+                <span onclick="onDelete()" class="btn"> <img width="35" height="35" src="img/icons/trash.png"></span>
+
+
+
                 <span class="btn"> <img onclick="onAddLine()" width="35" height="35" src="img/icons/add.png"></span>
 
 
