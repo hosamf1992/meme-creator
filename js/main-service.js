@@ -31,7 +31,7 @@ let gMeme = {
             font: 'Impact',
             size: 32,
             stroke: 'black',
-            align: 'left',
+            align: 'center',
             color: 'white',
             x: 20,
             y: 40,
@@ -59,7 +59,7 @@ function changeTxt(txt) {
 
 function switchLine() {
     if (gMeme.txts.length === 0) return;
-   
+
 
 
 }
@@ -72,15 +72,20 @@ function changePos(pos) {
 }
 
 function alignText(pos) {
+    let currentTxt = gMeme.txts[getSelctedTxtIdx()].line;
+    let textWidth = gCtx.measureText(currentTxt).width;
+    
     let x
     if (pos === 'center') {
-        x = gCanvas.width / 2;
+        // x = gCanvas.width / 2;
+
+        x = (gCanvas.width / 2) - (textWidth / 2)
     }
     if (pos === 'left') {
         x = 20;
     }
     if (pos === 'right') {
-        x = gCanvas.width - 100;
+        x = gCanvas.width - textWidth - 10;
     }
 
 
@@ -119,13 +124,11 @@ function findImgId(id) {
 
 }
 
-function getSelectedTxt() {
-    let txtIdx = gMeme.selectedTxtIdx;
-    let txt = gMeme['txts'][txtIdx];
-    return txt;
 
 
-
+function setFont(font){
+    let selectedTxtIdx = getSelctedTxtIdx();
+    gMeme.txts[selectedTxtIdx].font=font;
 
 }
 

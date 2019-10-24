@@ -13,24 +13,24 @@ function onChangePos(pos) {
     initCanvas();
 }
 
-function onChangeStroke(){
+function onChangeStroke() {
     let elStroke = document.querySelector("#stroke-box").value;
 
 
-   ChangeStroke(elStroke)
-   initCanvas();
+    ChangeStroke(elStroke)
+    initCanvas();
 
-   
+
 }
 
 function onChangeColor() {
     let elColor = document.querySelector("#color-box").value;
     changeColor(elColor)
-  console.log(elColor);
-   
-    
+    console.log(elColor);
+
+
     initCanvas();
-   
+
 }
 
 
@@ -58,6 +58,10 @@ function onAddLine() {
 
 }
 
+function onSetFont(font) {
+    setFont(font);
+    initCanvas();
+}
 
 function onChangeTxt() {
     let elTtx = document.querySelector('.user-input').value;
@@ -86,6 +90,7 @@ function loadImg(image) {
         gCtx.strokeStyle = txt.stroke;
         gCtx.lineWidth = 5;
         gCtx.fillStyle = txt.color;
+        gCtx.alignText = txt.align;
 
         gCtx.strokeText(txt.line, txt.x, txt.y);
 
