@@ -94,8 +94,8 @@ a {
 }
 
 .main-gallery img {
-    height: 250px;
-    width: 250px;
+    height: 310px;
+    width: 310px;
     cursor: pointer;
 }
 
@@ -144,10 +144,26 @@ a {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    grid-template-areas: 'item1 item1 item1 item1 item1 ' 'item2 item3 item4 item13 item14 ' 'item5 item6 item7 item8 item9 ' 'item12 item11 item15 item15 item15 ';
+    grid-template-areas: 'item1 item1 item1 item1 item1 '
+     'item2 item3 item4 item13 item14 '
+      'item5 item6 item7 item8 item9 ' 
+      'item12 item11 item15 item15 item15 '
+      'download download download download download ';
     padding-left: 100px;
     justify-items: center;
-    align-items: center;
+    height: 400px;
+}
+
+.download-btn {
+    width: 105px;
+    height: 35px;
+    border-radius: 12px;
+    background-color: #ff7f00;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    color: #ffffff;
+    grid-area: download;
 }
 
 .select-list {
@@ -244,9 +260,10 @@ a {
     }
     .editor {
         margin-top: 22px;
-        height: 270px;
+        height: 350px;
         width: 550px;
         justify-items: center;
+        margin-bottom: 10px;
     }
 }
 
@@ -296,10 +313,9 @@ a {
         width: 170px;
     }
     #canvas {
-        height:380px;
+        height: 380px;
     }
     .editor {
-        
         width: 418px;
         padding-left: 0px;
     }
@@ -316,24 +332,21 @@ a {
         height: 130px;
         width: 130px;
     }
-    .editor{
+    .editor {
         padding-left: 0px;
         width: 375px;
     }
-    #canvas{
+    #canvas {
         height: 340px;
     }
 }
 
 @media screen and (max-width:390px) {
-  
-    .editor{
-       
+    .editor {
         padding-left: 15px;
-    width: 345px;
+        width: 345px;
     }
-    #canvas{
+    #canvas {
         height: 285px;
     }
 }
-

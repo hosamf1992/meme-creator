@@ -7,6 +7,13 @@ function onInitEditor() {
     initCanvas()
 }
 
+function onDownload(el) {
+   
+    var image = canvas.toDataURL("image/jpg");
+
+    el.href = image;
+}
+
 
 function onChangePos(pos) {
     changePos(pos);
