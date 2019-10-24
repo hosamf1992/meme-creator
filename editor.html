@@ -10,14 +10,19 @@
 </head>
 
 <body onload="onInitEditor()">
+        <div class="screen" onclick="toggleMenu()"></div>
+
     <header>
         <div class="main-header ">
-            <div class="container flex space-between align-center ">
+            <div class=" container flex space-between align-center ">
                 <div class="logo">
                     <img class="img-logo" src="img/logo/LOGO.png">
                 </div>
+                <button id="menu-btn" class="menu-btn" onclick="toggleMenu()">☰</button>
                 <div class="nav">
-                    <ul class="flex">
+                      
+
+                    <ul class="flex nav">
                         <li><a href="index.html">Gallery </a></li>
                         <li><a>Memes</a></li>
                         <li><a>About</a></li>

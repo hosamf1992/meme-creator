@@ -2,10 +2,14 @@
 
 function onInitGallery() {
     renderGallery();
-  
+
 }
 
-
+function toggleMenu() {
+    var elMenu = document.querySelector('.nav');
+    // elMenu.classList.toggle('open');
+    document.body.classList.toggle('open-menu');
+}
 
 function renderGallery() {
     let strHtml = '';
