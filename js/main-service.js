@@ -17,6 +17,19 @@ let gImgs = [
     { id: 7, url: 'img/gallery/7.jpg', keywords: ['happy'] },
     { id: 8, url: 'img/gallery/8.jpg', keywords: ['happy'] },
     { id: 9, url: 'img/gallery/9.jpg', keywords: ['happy'] },
+    { id: 10, url: 'img/gallery/17.jpg', keywords: ['happy'] },
+    { id: 11, url: 'img/gallery/11.jpg', keywords: ['happy'] },
+    { id: 12, url: 'img/gallery/12.jpg', keywords: ['happy'] },
+    { id: 13, url: 'img/gallery/13.jpg', keywords: ['happy'] },
+    { id: 14, url: 'img/gallery/18.jpg', keywords: ['happy'] },
+    { id: 15, url: 'img/gallery/15.jpg', keywords: ['happy'] },
+    { id: 16, url: 'img/gallery/19.jpg', keywords: ['happy'] },
+    { id: 17, url: 'img/gallery/20.jpg', keywords: ['happy'] },
+    { id: 18, url: 'img/gallery/23.jpg', keywords: ['happy'] },
+    { id: 19, url: 'img/gallery/24.jpg', keywords: ['happy'] },
+    { id: 20, url: 'img/gallery/25.jpg', keywords: ['happy'] },
+
+
 
 
 ];
@@ -31,7 +44,7 @@ let gMeme = {
             font: 'Impact',
             size: 32,
             stroke: 'black',
-            align: 'center',
+            pos: 'top',
             color: 'white',
             x: 20,
             y: 40,
@@ -39,7 +52,16 @@ let gMeme = {
 
     ]
 };
-
+function drawRec(y) {
+    gCtx.fillStyle = 'rgba(225, 225, 225, 0.5)';
+    gCtx.fillRect(0, y- 50, gCanvas.width, 100);
+  
+}
+function getSelectedPos(){
+  let pos=  gMeme.txts[getSelctedTxtIdx()].y;
+  return pos;
+       
+}
 function ChangeStroke(color) {
     let selectedTxtIdx = getSelctedTxtIdx();
     gMeme.txts[selectedTxtIdx].stroke = color;
@@ -58,23 +80,48 @@ function changeTxt(txt) {
 }
 
 function switchLine() {
-    if (gMeme.txts.length === 0) return;
+
+
+    if (gMeme.txts.length === 1) return;
+
+    if (getSelctedTxtIdx() === gMeme.txts.length - 1) {
+        gMeme.selectedTxtIdx = 0;
+    } else {
+        gMeme.selectedTxtIdx += 1;
+    }
+
+}
+
+function deleteLine() {
+    let selectedTxtIdx = getSelctedTxtIdx();
+    // if (gMeme.txts.length === 1) {
+    //     return (gMeme.txts[0].line = ''), gMeme.selectedTxtIdx = 0;
+
+
+    // }
+    gMeme.selectedTxtIdx = gMeme.txts.length - 1;
+    gMeme.selectedTxtIdx -= 1;
+    gMeme.txts.splice(selectedTxtIdx, 1);
+    if (gMeme.txts.length === 0) {
+        return (addTxt('', 20, 40, 'top'), gMeme.selectedTxtIdx = 0)
+
+
+    }
 
 
 
 }
-
-
 function changePos(pos) {
     let y = 2;
     if (pos === 'up') gMeme.txts[getSelctedTxtIdx()].y -= y;
     else gMeme.txts[getSelctedTxtIdx()].y += y
 }
 
+
 function alignText(pos) {
     let currentTxt = gMeme.txts[getSelctedTxtIdx()].line;
     let textWidth = gCtx.measureText(currentTxt).width;
-    
+
     let x
     if (pos === 'center') {
         // x = gCanvas.width / 2;
@@ -94,20 +141,14 @@ function alignText(pos) {
 }
 
 function addLine(txt) {
+
     if (getSelctedTxtIdx() === 2) return;
+    if (gMeme.txts.length === 3) return;
+
     gMeme.selectedTxtIdx += 1;
-    let y;
 
-    if (getSelctedTxtIdx() === 1) {
+    addTxt(txt, 20, arrangeLines().y, arrangeLines().pos);
 
-        y = gCanvas.height - 20;
-
-    }
-    if (getSelctedTxtIdx() === 2) {
-        y = gCanvas.height / 2;
-
-    }
-    addTxt(txt, 20, y);
 }
 
 function changeSize(size) {
@@ -119,6 +160,7 @@ function changeSize(size) {
 }
 
 function findImgId(id) {
+
     let index = gImgs.findIndex((img) => img.id === id)
     return index;
 
@@ -126,9 +168,9 @@ function findImgId(id) {
 
 
 
-function setFont(font){
+function setFont(font) {
     let selectedTxtIdx = getSelctedTxtIdx();
-    gMeme.txts[selectedTxtIdx].font=font;
+    gMeme.txts[selectedTxtIdx].font = font;
 
 }
 
@@ -144,14 +186,14 @@ function getSelctedTxtIdx() {
     return gMeme.selectedTxtIdx;
 }
 
-function addTxt(text, x, y) {
+function addTxt(text, x, y, pos) {
     let txt = {
 
         line: text,
         stroke: 'black',
         font: 'Impact',
         size: 32,
-        align: 'center',
+        pos: pos,
         color: 'white',
         x: x,
         y: y,
@@ -159,5 +201,15 @@ function addTxt(text, x, y) {
     }
 
     gMeme["txts"].push(txt);
+
+}
+
+function arrangeLines() {
+    let posMap = gMeme.txts.map(pos => pos.pos);
+    if (posMap.every(pos => ['top'].indexOf(pos) > -1)) return { y: gCanvas.height - 20, pos: 'bottom' };
+    if (posMap.every(pos => ['top', 'bottom'].indexOf(pos) > -1)) return { y: gCanvas.height / 2, pos: 'center' };
+    if (posMap.every(pos => ['top', 'center'].indexOf(pos) > -1)) return { y: gCanvas.height - 20, pos: 'bottom' };
+    if (posMap.every(pos => ['center'].indexOf(pos) > -1)) return { y: 40, pos: 'top' };
+    if (posMap.every(pos => ['center', 'bottom'].indexOf(pos) > -1)) return { y: 40, pos: 'top' };
 
 }

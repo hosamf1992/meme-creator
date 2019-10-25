@@ -8,8 +8,8 @@ function onInitEditor() {
 }
 
 function onDownload(el) {
-   
-    var image = canvas.toDataURL("image/jpg");
+
+    let image = canvas.toDataURL("image/jpg");
 
     el.href = image;
 }
@@ -50,17 +50,39 @@ function onAlignText(pos) {
 }
 
 function onSwitchLine() {
+    // initCanvas();
 
-
+   
     switchLine();
+    let pos = getSelectedPos();
+
+    initCanvas();
+    setTimeout(() => {
+        drawRec(pos)
+
+        // initCanvas();
+    }, 10);
+    
+
 }
 
+function onDelete() {
+    deleteLine();
+    initCanvas();
+}
 
 function onAddLine() {
+    if (gMeme.txts.length === 3) return;
     clearInput();
     let elTtx = document.querySelector('.user-input').value;
     addLine(elTtx);
-    initCanvas();
+    let pos = getSelectedPos();
+
+    drawRec(pos)
+    setTimeout(() => {
+
+        initCanvas();
+    }, 1500);
 
 
 }
@@ -113,6 +135,8 @@ function loadImg(image) {
 
 
 function initCanvas() {
+
+
     gCanvas = document.querySelector('#canvas');
     gCtx = gCanvas.getContext('2d');
     let idImg = loadImgIdFromStorage();
@@ -121,6 +145,7 @@ function initCanvas() {
     let index = findImgId(+idImg)
     img.src = gImgs[index].url;
     let txt = gMeme.txts[gMeme.selectedTxtIdx].line;
+
     document.querySelector('.user-input').value = txt;
     img.onload = start;
     function start() {
@@ -129,6 +154,7 @@ function initCanvas() {
         loadImg(img)
     }
 
+    
 }
 
 

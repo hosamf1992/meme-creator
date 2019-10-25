@@ -4,6 +4,7 @@
 
 body {
     margin: 0;
+    background-color: #e3e3e3;
 }
 
 .screen {
@@ -28,17 +29,23 @@ ul {
 }
 
 a {
+   
     text-decoration: none;
+  
+    color: #ffffff;
+    font-family: Montserrat;
+    font-size: 25px;
+    font-weight: 400;
 }
 
 .container {
-    max-width: 980px;
+    max-width: 95%;
     margin: 0 auto;
 }
 
 .img-logo {
-    width: 133px;
-    height: 22px;
+    width: 140px;
+    height:30px;
 }
 
 .main-header {
@@ -46,12 +53,25 @@ a {
     background-color: #ff7f00;
 }
 
+.active{
+    border-bottom: 4px solid #040a2c;
+}
+
 .nav li {
-    padding-right: 10px;
+   width: 120px;
     height: 66px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 5px;
+    cursor: pointer;
+
+}
+
+.nav li:hover{
+   
+    border-bottom: 4px solid #040a2c;
+  
 }
 
 .menu-btn {
@@ -79,7 +99,7 @@ a {
 .rights {
     color: #ffffff;
     font-family: "Montserrat - Thin";
-    font-size: 19px;
+    font-size: 25px;
     font-weight: 400;
     margin-top: 22px;
 }
@@ -88,15 +108,23 @@ a {
 
 .main-gallery {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     margin-top: 30px;
     grid-gap: 15px
 }
 
 .main-gallery img {
     height: 310px;
-    width: 310px;
+
     cursor: pointer;
+    width: 95%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.main-gallery img:hover {
+
+    box-shadow: 8px 8px 8px #838383;
 }
 
 /* meme-editor */
@@ -108,8 +136,9 @@ a {
 }
 
 #canvas {
-    border: 1px solid #000;
-    height: 480px;
+   
+    height: 430px;
+    /* width: 100%; */
 }
 
 .btn {
@@ -122,7 +151,8 @@ a {
     display: inline-flex;
     /* padding: 10px; */
     border-radius: 12px;
-    background-color: #ffffff
+    background-color: #ffffff;
+    cursor: pointer;
 }
 
 #color-box {
@@ -149,14 +179,15 @@ a {
       'item5 item6 item7 item8 item9 ' 
       'item12 item11 item15 item15 item15 '
       'download download download download download ';
-    padding-left: 100px;
     justify-items: center;
     height: 400px;
+    width:70%;
+    margin-left: 50px;
 }
 
 .download-btn {
-    width: 105px;
-    height: 35px;
+    width: 160px;
+    height: 50px;
     border-radius: 12px;
     background-color: #ff7f00;
     padding: 10px;
@@ -167,7 +198,7 @@ a {
 }
 
 .select-list {
-    width: 218px;
+    width: 100%;
     height: 60px;
     border-radius: 12px;
     background-color: #ffffff;
@@ -245,11 +276,11 @@ a {
 @media screen and (max-width:800px) {
     .main-gallery {
         grid-template-columns: repeat(2, 1fr);
-        padding: 25px;
+   
     }
     .main-gallery img {
         height: 280px;
-        width: 280px;
+        /* width: 100%; */
     }
     .main-editor {
         grid-template-columns: repeat(1, 1fr);
@@ -261,16 +292,19 @@ a {
     .editor {
         margin-top: 22px;
         height: 350px;
-        width: 550px;
+        width: 90%;
         justify-items: center;
         margin-bottom: 10px;
+    }
+    .select-list{
+        width: 160px;
     }
 }
 
 @media screen and (max-width:620px) {
     .main-gallery img {
         height: 250px;
-        width: 250px;
+        /* width: 250px; */
     }
     .img-logo {
         margin-left: 25px;
@@ -278,7 +312,8 @@ a {
     }
     .editor {
         height: 320px;
-        width: 480px;
+        margin-left: 0px;
+      
     }
 }
 
@@ -299,42 +334,36 @@ a {
     }
     .nav {
         flex-direction: column;
+        align-items: center;
         height: 100vh;
         position: fixed;
         top: 0;
         right: 0;
-        width: 200px;
-        background: rgba(255, 255, 255, 0.8);
+        width: 180px;
+        background: rgba(255, 152, 0,0.5);
         transform: translate(100%, 0);
         transition: transform .6s;
     }
-    .main-gallery img {
-        height: 170px;
-        width: 170px;
-    }
+    
     #canvas {
         height: 380px;
+       
     }
-    .editor {
-        width: 418px;
-        padding-left: 0px;
-    }
-    .select-list {
-        width: 195px;
-    }
+   
+   
     .user-input {
-        width: 330px;
+        width: 90%;
     }
 }
 
 @media screen and (max-width:430px) {
     .main-gallery img {
         height: 130px;
-        width: 130px;
+        /* width: 130px; */
     }
     .editor {
         padding-left: 0px;
-        width: 375px;
+        width: 100;
     }
     #canvas {
         height: 340px;
@@ -342,10 +371,7 @@ a {
 }
 
 @media screen and (max-width:390px) {
-    .editor {
-        padding-left: 15px;
-        width: 345px;
-    }
+    
     #canvas {
         height: 285px;
     }

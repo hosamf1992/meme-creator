@@ -6,7 +6,7 @@ function saveToStorage(key, value) {
 }
 
 function loadFromStorage(key) {
-    var str = localStorage.getItem(key);
-    var value = JSON.parse(str)
+    let str = localStorage.getItem(key);
+    let value = JSON.parse(str)
     return value;
 }

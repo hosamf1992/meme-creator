@@ -6,8 +6,7 @@ function onInitGallery() {
 }
 
 function toggleMenu() {
-    var elMenu = document.querySelector('.nav');
-    // elMenu.classList.toggle('open');
+   
     document.body.classList.toggle('open-menu');
 }
 
