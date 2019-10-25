@@ -2,6 +2,7 @@
 
 function onInitGallery() {
     renderGallery();
+    uploadImage();
 
 }
 

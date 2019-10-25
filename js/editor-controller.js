@@ -52,7 +52,7 @@ function onAlignText(pos) {
 function onSwitchLine() {
     // initCanvas();
 
-   
+
     switchLine();
     let pos = getSelectedPos();
 
@@ -62,7 +62,7 @@ function onSwitchLine() {
 
         // initCanvas();
     }, 10);
-    
+
 
 }
 
@@ -136,6 +136,7 @@ function loadImg(image) {
 
 function initCanvas() {
 
+    let imgUpload = loadUpload();
 
     gCanvas = document.querySelector('#canvas');
     gCtx = gCanvas.getContext('2d');
@@ -143,7 +144,14 @@ function initCanvas() {
     gMeme.selectedImgId = idImg;
     let img = new Image();
     let index = findImgId(+idImg)
-    img.src = gImgs[index].url;
+    
+  
+    if(imgUpload!==null){
+        img.src = imgUpload;
+
+    } else{
+        img.src = gImgs[index].url;
+    }
     let txt = gMeme.txts[gMeme.selectedTxtIdx].line;
 
     document.querySelector('.user-input').value = txt;
@@ -154,7 +162,7 @@ function initCanvas() {
         loadImg(img)
     }
 
-    
+
 }
 
 

@@ -10,3 +10,4 @@ function loadFromStorage(key) {
     let value = JSON.parse(str)
     return value;
 }
+

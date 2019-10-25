@@ -376,3 +376,35 @@ a {
         height: 285px;
     }
 }
+
+/* upload btn */
+.upload-btn-wrapper {
+    margin-top:10px;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+  .upload-btn {
+    
+    
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    width: 160px;
+    height: 50px;
+    border-radius: 12px;
+    background-color: #ff7f00;
+    padding: 10px;
+    text-align: center;
+    color: white;
+  
+  }
+  
+  .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }

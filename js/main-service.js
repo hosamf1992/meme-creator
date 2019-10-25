@@ -4,6 +4,7 @@ let gCtx;
 let gImgId;
 let IMG_ID = 'imgId';
 
+// uploadFile();
 
 let gKeywords = { 'happy': 12, 'funny puk': 1 }
 
@@ -182,6 +183,15 @@ function loadImgIdFromStorage() {
     return loadFromStorage(IMG_ID);
 }
 
+function loadUpload(){
+    let str = localStorage.getItem('user-img');
+    return str;
+}
+
+function clearImg(){
+    localStorage.removeItem('user-img');
+
+}
 function getSelctedTxtIdx() {
     return gMeme.selectedTxtIdx;
 }
@@ -213,3 +223,27 @@ function arrangeLines() {
     if (posMap.every(pos => ['center', 'bottom'].indexOf(pos) > -1)) return { y: 40, pos: 'top' };
 
 }
+function uploadImage(){
+    var input = document.getElementById('uploadImage');
+    input.onchange = function(evt){
+        var tgt = evt.target || window.event.srcElement, 
+            files = tgt.files;
+
+        if (FileReader && files && files.length) {
+            var fr = new FileReader();
+            fr.onload = function () {
+                localStorage['user-img'] = fr.result;
+            }
+            fr.readAsDataURL(files[0]);
+        }
+        window.open("editor.html", "_self");
+
+    }
+}
+   
+window.onbeforeunload = closingCode;
+function closingCode(){
+    clearImg();
+   return null;
+}
+
