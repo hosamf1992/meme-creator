@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body onload="onInitGallery()">
-    <div class="screen" onclick="toggleMenu()"></div>
+<body onload="onInitSavedImg()">
+        <div class="screen" onclick="toggleMenu()"></div>
 
     <header>
         <div class="main-header ">
@@ -21,9 +21,9 @@
                 <button id="menu-btn" class="menu-btn" onclick="toggleMenu()">☰</button>
 
                 <ul class="flex nav">
-                    <li class="active"><a>Gallery </a></li>
-                    <li><a href="memes.html">Memes</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li ><a href="index.html">Gallery </a></li>
+                    <li class="active"><a>Memes</a></li>
+                    <li><a href="index.html#about"> About</a></li>
 
 
                 </ul>
@@ -37,39 +37,18 @@
 
 
     <main class="grey-background">
-        <div class="upload-btn-wrapper">
-            <button class="upload-btn">Upload file</button>
+           <h2 class="msg">No Saved Images!</h2>
 
-            <input id="uploadImage" type="file" accept="image/*" />
-        </div>
+           
+        <div class="container main-gallery ">
 
-
-        <div class="container main-gallery">
-
+            
+               
 
 
         </div>
-
-
 
     </main>
-    <a name="about"></a>
-    <section  class="profile flex justify-center align-center">
-        <div class="main-profile"> 
-            
-            <img src="img/profile/me.jpg" class="profile-img">
-            <div class="profile-content">
-                <h3 class="title-profile">Hosam Faour</h3>
-                <p class="text-profile">"Robot" is a term almost one hundred years old, created in fiction before becoming a reality.
-                   
-                   </p>
-
-            </div>
-        </div>
-
-
-
-    </section>
 
 
     <footer>

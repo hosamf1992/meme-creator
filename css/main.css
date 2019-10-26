@@ -29,9 +29,7 @@ ul {
 }
 
 a {
-   
     text-decoration: none;
-  
     color: #ffffff;
     font-family: Montserrat;
     font-size: 25px;
@@ -45,7 +43,7 @@ a {
 
 .img-logo {
     width: 140px;
-    height:30px;
+    height: 30px;
 }
 
 .main-header {
@@ -53,25 +51,22 @@ a {
     background-color: #ff7f00;
 }
 
-.active{
+.active {
     border-bottom: 4px solid #040a2c;
 }
 
 .nav li {
-   width: 120px;
+    width: 120px;
     height: 66px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right: 5px;
     cursor: pointer;
-
 }
 
-.nav li:hover{
-   
+.nav li:hover {
     border-bottom: 4px solid #040a2c;
-  
 }
 
 .menu-btn {
@@ -115,7 +110,6 @@ a {
 
 .main-gallery img {
     height: 310px;
-
     cursor: pointer;
     width: 95%;
     object-fit: cover;
@@ -123,7 +117,6 @@ a {
 }
 
 .main-gallery img:hover {
-
     box-shadow: 8px 8px 8px #838383;
 }
 
@@ -136,7 +129,6 @@ a {
 }
 
 #canvas {
-   
     height: 430px;
     /* width: 100%; */
 }
@@ -174,19 +166,15 @@ a {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    grid-template-areas: 'item1 item1 item1 item1 item1 '
-     'item2 item3 item4 item13 item14 '
-      'item5 item6 item7 item8 item9 ' 
-      'item12 item11 item15 item15 item15 '
-      'download download download download download ';
+    grid-template-areas: 'item1 item1 item1 item1 item1 ' 'item2 item3 item4 item13 item14 ' 'item5 item6 item7 item8 item9 ' 'item12 item11 item15 item15 item15 ' 'save-btn save-btn download download download ';
     justify-items: center;
     height: 400px;
-    width:70%;
+    width: 70%;
     margin-left: 50px;
 }
 
 .download-btn {
-    width: 160px;
+   width: 78%;;
     height: 50px;
     border-radius: 12px;
     background-color: #ff7f00;
@@ -203,6 +191,23 @@ a {
     border-radius: 12px;
     background-color: #ffffff;
     grid-area: item15;
+}
+
+.save-btn {
+    width: 90%;
+    height: 50px;
+    border-radius: 12px;
+    background-color: #ff7f00;
+    font-size: 25px;
+    color: #ffffff;
+    font-family: Montserrat;
+    font-size: 25px;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    grid-area: save-btn;
 }
 
 .item1 {
@@ -249,6 +254,54 @@ a {
     grid-area: item14;
 }
 
+
+/* profile */
+
+
+.profile{
+    background-color: white;
+    height: 300px;
+    margin-top: 20px;
+    display: flex;
+   
+}
+.main-profile{
+    display: flex;
+    margin-left: 147px;
+   
+    align-items: center;
+}
+
+.profile-img{
+    width: 225px;
+    height: 225px;
+    border: 7px solid white;
+    border-radius: 50%;
+}
+.profile-content{
+    margin-left: 15px;
+}
+.title-profile{
+    font-weight: bolder;
+    color: #ff7f00;
+}
+
+.text-profile{
+    text-align: left;
+}
+
+
+/* saved memes */
+
+.msg {
+    text-align: center;
+    color: #565656;
+    font-family: Montserrat;
+    font-size: 25px;
+    font-weight: bolder;
+    display: none;
+}
+
 /* helpers */
 
 .flex {
@@ -276,7 +329,6 @@ a {
 @media screen and (max-width:800px) {
     .main-gallery {
         grid-template-columns: repeat(2, 1fr);
-   
     }
     .main-gallery img {
         height: 280px;
@@ -296,7 +348,7 @@ a {
         justify-items: center;
         margin-bottom: 10px;
     }
-    .select-list{
+    .select-list {
         width: 160px;
     }
 }
@@ -313,7 +365,6 @@ a {
     .editor {
         height: 320px;
         margin-left: 0px;
-      
     }
 }
 
@@ -340,19 +391,19 @@ a {
         top: 0;
         right: 0;
         width: 180px;
-        background: rgba(255, 152, 0,0.5);
+        background: rgba(255, 152, 0, 0.5);
         transform: translate(100%, 0);
         transition: transform .6s;
     }
-    
     #canvas {
         height: 380px;
-       
     }
-   
-   
     .user-input {
         width: 90%;
+    }
+
+    .main-profile{
+        margin-left: 0px;
     }
 }
 
@@ -371,23 +422,22 @@ a {
 }
 
 @media screen and (max-width:390px) {
-    
     #canvas {
         height: 285px;
     }
 }
 
 /* upload btn */
+
 .upload-btn-wrapper {
-    margin-top:10px;
+    margin-top: 10px;
     position: relative;
     overflow: hidden;
     display: inline-block;
-  }
-  
-  .upload-btn {
-    
-    
+    margin-left: 5px;
+}
+
+.upload-btn {
     border-radius: 8px;
     font-size: 20px;
     font-weight: bold;
@@ -398,13 +448,13 @@ a {
     padding: 10px;
     text-align: center;
     color: white;
-  
-  }
-  
-  .upload-btn-wrapper input[type=file] {
+    cursor: pointer;
+}
+
+.upload-btn-wrapper input[type=file] {
     font-size: 100px;
     position: absolute;
     left: 0;
     top: 0;
     opacity: 0;
-  }
+}

@@ -7,11 +7,17 @@ function onInitEditor() {
     initCanvas()
 }
 
+function onSaveImg() {
+    let image = canvas.toDataURL("image/jpg");
+    saveImg(image);
+}
+
 function onDownload(el) {
 
     let image = canvas.toDataURL("image/jpg");
 
     el.href = image;
+
 }
 
 
@@ -144,12 +150,12 @@ function initCanvas() {
     gMeme.selectedImgId = idImg;
     let img = new Image();
     let index = findImgId(+idImg)
-    
-  
-    if(imgUpload!==null){
+
+
+    if (imgUpload !== null) {
         img.src = imgUpload;
 
-    } else{
+    } else {
         img.src = gImgs[index].url;
     }
     let txt = gMeme.txts[gMeme.selectedTxtIdx].line;

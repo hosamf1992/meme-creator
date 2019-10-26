@@ -6,6 +6,10 @@ function onInitGallery() {
 
 }
 
+function onInitSavedImg(){
+    renderSavedImg();
+}
+
 function toggleMenu() {
    
     document.body.classList.toggle('open-menu');
@@ -29,4 +33,25 @@ function openEditor(el) {
     saveIdToStorage();
     console.log(el.dataset.id);
     window.open("editor.html", "_self");
+}
+
+function renderSavedImg(){
+
+    let strHtml = '';
+    let imgFromStorage = loadFromStorage(SAVED_IMG);
+    if (imgFromStorage !== null) {
+        gSavedImg = imgFromStorage;
+    }
+    else{
+        document.querySelector('.msg').style.display='block';
+    }
+    gSavedImg.forEach((img) => {
+        strHtml += `<div class='items'> <img src="${img}"> </div>`;
+
+
+    });
+
+    let elGallery = document.querySelector('.main-gallery');
+    elGallery.innerHTML = strHtml;
+
 }

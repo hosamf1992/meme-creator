@@ -3,6 +3,8 @@ let gCanvas;
 let gCtx;
 let gImgId;
 let IMG_ID = 'imgId';
+let SAVED_IMG = 'savedImg';
+let gSavedImg = [];
 
 // uploadFile();
 
@@ -55,13 +57,13 @@ let gMeme = {
 };
 function drawRec(y) {
     gCtx.fillStyle = 'rgba(225, 225, 225, 0.5)';
-    gCtx.fillRect(0, y- 50, gCanvas.width, 100);
-  
+    gCtx.fillRect(0, y - 50, gCanvas.width, 100);
+
 }
-function getSelectedPos(){
-  let pos=  gMeme.txts[getSelctedTxtIdx()].y;
-  return pos;
-       
+function getSelectedPos() {
+    let pos = gMeme.txts[getSelctedTxtIdx()].y;
+    return pos;
+
 }
 function ChangeStroke(color) {
     let selectedTxtIdx = getSelctedTxtIdx();
@@ -183,12 +185,12 @@ function loadImgIdFromStorage() {
     return loadFromStorage(IMG_ID);
 }
 
-function loadUpload(){
+function loadUpload() {
     let str = localStorage.getItem('user-img');
     return str;
 }
 
-function clearImg(){
+function clearImg() {
     localStorage.removeItem('user-img');
 
 }
@@ -223,10 +225,10 @@ function arrangeLines() {
     if (posMap.every(pos => ['center', 'bottom'].indexOf(pos) > -1)) return { y: 40, pos: 'top' };
 
 }
-function uploadImage(){
+function uploadImage() {
     var input = document.getElementById('uploadImage');
-    input.onchange = function(evt){
-        var tgt = evt.target || window.event.srcElement, 
+    input.onchange = function (evt) {
+        var tgt = evt.target || window.event.srcElement,
             files = tgt.files;
 
         if (FileReader && files && files.length) {
@@ -240,10 +242,18 @@ function uploadImage(){
 
     }
 }
-   
+
 window.onbeforeunload = closingCode;
-function closingCode(){
+function closingCode() {
     clearImg();
-   return null;
+    return null;
 }
 
+function saveImg(image) {
+    let imgFromStorage = loadFromStorage(SAVED_IMG);
+    if (imgFromStorage !== null) {
+        gSavedImg = imgFromStorage;
+    }
+    gSavedImg.push(image);
+    saveToStorage(SAVED_IMG, gSavedImg)
+}
