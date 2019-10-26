@@ -15,6 +15,7 @@ function onSaveImg() {
 function onDownload(el) {
 
     let image = canvas.toDataURL("image/jpg");
+   
 
     el.href = image;
 
@@ -184,13 +185,13 @@ function clearInput() {
 const shareBtn = document.querySelector('.share-btn');
 
 shareBtn.addEventListener('click', () => {
-    let image = canvas.toDataURL("image/jpg");
+    let image = canvas.toDataURL("image/png");
 
   if (navigator.share) {
     navigator.share({
       title: 'My awesome meme!',
       text: 'This post may or may not contain the answer to the universe',
-      url:image
+      url:image,
     }).then(() => {
       console.log('Thanks for sharing!');
     })
