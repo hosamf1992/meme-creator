@@ -181,3 +181,23 @@ function clearInput() {
 
 
 
+const shareBtn = document.querySelector('.share-btn');
+
+shareBtn.addEventListener('click', () => {
+    let image = canvas.toDataURL("image/jpg");
+
+  if (navigator.share) {
+    navigator.share({
+      title: 'My awesome meme!',
+      text: 'This post may or may not contain the answer to the universe',
+      url:image
+    }).then(() => {
+      console.log('Thanks for sharing!');
+    })
+    .catch(err => {
+      console.log(`Couldn't share because of`, err.message);
+    });
+  } else {
+    console.log('web share not supported');
+  }
+});
