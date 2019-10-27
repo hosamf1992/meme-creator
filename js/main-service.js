@@ -5,32 +5,32 @@ let gImgId;
 let IMG_ID = 'imgId';
 let SAVED_IMG = 'savedImg';
 let gSavedImg = [];
+let LANG_KEY='lang';
 
-// uploadFile();
 
-let gKeywords = { 'happy': 12, 'funny puk': 1 }
+let gKeywords = { 'happy': 12, 'funny puk': 1 };
 
 let gImgs = [
     { id: 1, url: 'img/gallery/1.jpg', keywords: ['happy'] },
-    { id: 2, url: 'img/gallery/2.jpg', keywords: ['happy'] },
-    { id: 3, url: 'img/gallery/3.jpg', keywords: ['happy'] },
-    { id: 4, url: 'img/gallery/4.jpg', keywords: ['happy'] },
-    { id: 5, url: 'img/gallery/5.jpg', keywords: ['happy'] },
-    { id: 6, url: 'img/gallery/6.jpg', keywords: ['happy'] },
-    { id: 7, url: 'img/gallery/7.jpg', keywords: ['happy'] },
-    { id: 8, url: 'img/gallery/8.jpg', keywords: ['happy'] },
+    { id: 2, url: 'img/gallery/2.jpg', keywords: ['celeb'] },
+    { id: 3, url: 'img/gallery/3.jpg', keywords: ['dogs'] },
+    { id: 4, url: 'img/gallery/4.jpg', keywords: ['kids'] },
+    { id: 5, url: 'img/gallery/5.jpg', keywords: ['kids'] },
+    { id: 6, url: 'img/gallery/6.jpg', keywords: ['cats'] },
+    { id: 7, url: 'img/gallery/7.jpg', keywords: ['funny'] },
+    { id: 8, url: 'img/gallery/8.jpg', keywords: ['kids'] },
     { id: 9, url: 'img/gallery/9.jpg', keywords: ['happy'] },
-    { id: 10, url: 'img/gallery/17.jpg', keywords: ['happy'] },
-    { id: 11, url: 'img/gallery/11.jpg', keywords: ['happy'] },
-    { id: 12, url: 'img/gallery/12.jpg', keywords: ['happy'] },
+    { id: 10, url: 'img/gallery/17.jpg', keywords: ['obama'] },
+    { id: 11, url: 'img/gallery/11.jpg', keywords: ['funny'] },
+    { id: 12, url: 'img/gallery/12.jpg', keywords: ['funny'] },
     { id: 13, url: 'img/gallery/13.jpg', keywords: ['happy'] },
-    { id: 14, url: 'img/gallery/18.jpg', keywords: ['happy'] },
-    { id: 15, url: 'img/gallery/15.jpg', keywords: ['happy'] },
+    { id: 14, url: 'img/gallery/18.jpg', keywords: ['fight'] },
+    { id: 15, url: 'img/gallery/15.jpg', keywords: ['cool'] },
     { id: 16, url: 'img/gallery/19.jpg', keywords: ['happy'] },
     { id: 17, url: 'img/gallery/20.jpg', keywords: ['happy'] },
-    { id: 18, url: 'img/gallery/23.jpg', keywords: ['happy'] },
-    { id: 19, url: 'img/gallery/24.jpg', keywords: ['happy'] },
-    { id: 20, url: 'img/gallery/25.jpg', keywords: ['happy'] },
+    { id: 18, url: 'img/gallery/23.jpg', keywords: ['cool'] },
+    { id: 19, url: 'img/gallery/24.jpg', keywords: ['funny'] },
+    { id: 20, url: 'img/gallery/25.jpg', keywords: ['dance'] },
 
 
 
@@ -190,6 +190,8 @@ function loadUpload() {
     return str;
 }
 
+
+
 function clearImg() {
     localStorage.removeItem('user-img');
 
@@ -259,4 +261,33 @@ function saveImg(image) {
 }
 
 
+
+
+
+
+
+function sortBy(sortBy, value) {
+
+    let result = [];
+    gImgs.forEach(img => {
+        img.keywords.forEach(keyword => {
+            if (sortBy === 'keyword') {
+                if (result.indexOf(keyword) < 0) {
+                    result.push(keyword);
+                }
+            }
+            if (sortBy === 'img') {
+                if (keyword === value) {
+                    result.push(img);
+                }
+            }
+
+
+
+        });
+
+    });
+
+    return result;
+}
 

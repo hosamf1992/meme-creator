@@ -10,7 +10,7 @@
 </head>
 
 <body onload="onInitEditor()">
-        <div class="screen" onclick="toggleMenu()"></div>
+    <div class="screen" onclick="toggleMenu()"></div>
 
     <header>
         <div class="main-header ">
@@ -20,12 +20,20 @@
                 </div>
                 <button id="menu-btn" class="menu-btn" onclick="toggleMenu()">☰</button>
                 <div class="nav">
-                      
+
 
                     <ul class="flex nav">
-                        <li><a href="index.html">Gallery </a></li>
-                        <li><a href="memes.html">Memes</a></li>
-                        <li><a href="index.html#about">About</a></li>
+                        <li><a data-trans="gallery-nav" href="index.html">Gallery </a></li>
+                        <li><a data-trans="memes-nav" href="memes.html">Memes</a></li>
+                        <li><a data-trans="about-nav" href="index.html#about">About</a></li>
+                        <li>
+                                <select class="dropdown-lang" onchange="onSetLang(this.value)">
+                                    <option value="en">English</option>
+                                    <option value="he">עברית</option>
+    
+                                </select>
+    
+                                </li>
 
 
                     </ul>
@@ -97,11 +105,12 @@
                         <option value="arial">Arial</option>
                         <option value="monospace">Monospace</option>
                     </select>
-                    <a  class="download-btn" download href="" onclick="onDownload(this)">Download</a>
-                   <button class="save-btn" onclick="onSaveImg()">Save</button>
+                    <a data-trans="download-btn" class="download-btn" download href=""
+                        onclick="onDownload(this)">Download</a>
+                    <button data-trans="save-btn" class="save-btn" onclick="onSaveImg()">Save</button>
+                    
 
-
-
+                    
 
 
 
@@ -125,20 +134,20 @@
             <div class="logo-footer">
                 <img class="img-logo" src="img/logo/LOGO.png">
             </div>
-            <div class="rights">All Rights Reserved 2019</div>
+            <div data-trans="footer-rights" class="rights">All Rights Reserved 2019</div>
 
 
         </div>
 
     </footer>
 
-
-    <script src="js/main-service.js"></script>
     <script src="js/utill.js"></script>
+    <script src="js/main-service.js"></script>
 
     <script src="js/editor-controller.js"></script>
 
     <script src="js/gallery-controller.js"></script>
+    <script src="js/i18n.js"></script>
 
 
 

@@ -4,7 +4,9 @@
 
 function onInitEditor() {
 
-    initCanvas()
+    initCanvas();
+    loadLang();
+
 }
 
 function onSaveImg() {
@@ -15,7 +17,7 @@ function onSaveImg() {
 function onDownload(el) {
 
     let image = canvas.toDataURL("image/png");
-   
+
 
     el.href = image;
 
@@ -164,6 +166,7 @@ function initCanvas() {
     document.querySelector('.user-input').value = txt;
     img.onload = start;
     function start() {
+        
         gCanvas.width = img.width;
         gCanvas.height = img.height;
         loadImg(img)
@@ -178,6 +181,8 @@ function clearInput() {
     elTtx.value = '';
 
 }
+
+
 
 
 
