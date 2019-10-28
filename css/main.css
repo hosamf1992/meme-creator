@@ -430,7 +430,7 @@ a {
         top: 0;
         right: 0;
         width: 180px;
-        background:   rgba(255, 152, 0, 1);
+        background:  rgb(108, 100, 88);
         transform: translate(100%, 0);
         transition: transform .6s;
         z-index: 1;
@@ -447,7 +447,7 @@ a {
         margin-left: 0px;
     }
     .dropdown-lang{
-        background:   rgba(255, 152, 0, 1);
+        background:  rgb(108, 100, 88);
     }
 }
 
